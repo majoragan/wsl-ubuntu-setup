@@ -13,16 +13,16 @@ First, check all available Linux distributions online using PoweShell:
 wsl --list --online
 ```
 
-then install Ubuntu 20.04 or any other prefrerred distribution from the list:
+then install your preferred distribution from the list (in this case `Ubuntu-20.04`):
 ```POWERSHELL
-wsl --install -d 'Ubuntu-20.04'
+wsl --install -d <distribution>
 ```
 
-create new user & password once Ubuntu installation sucessfully finished and you're good to go.
+create new user & password once Ubuntu installation successfully finished and you're good to go.
 
 ## Ubuntu setup
 
-User should be added into `sudo` group automatically, just enable execution of the `ALL sudo` commands without password (optional, not recommended):
+User should be added into `sudo` group automatically, just enable execution of all `sudo` commands without password (optional, not recommended):
 ```BASH
 sudo visudo
 ```
@@ -37,7 +37,7 @@ Update and upgrade installed repositories:
 sudo apt update && sudo apt upgrade -y
 ```
 
-Install `gedit` to conviniently edit files using GUI:
+Install `gedit` to conveniently edit files using GUI editor (optional):
 ```BASH
 sudo apt install gedit
 ```
