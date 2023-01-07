@@ -18,7 +18,8 @@ then install your preferred distribution from the list (in this case `Ubuntu-20.
 wsl --install -d <distribution>
 ```
 
-create new user & password once Ubuntu installation successfully finished and you're good to go.
+and create new user & password once Ubuntu installation successfully finished. \
+You're good to go.
 
 ## Ubuntu setup
 
