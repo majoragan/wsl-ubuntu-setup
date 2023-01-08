@@ -98,6 +98,78 @@ echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.
 echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 ```
 
+<br/>
+
 ## Docker
+
+Clear out any residual `Docker` installs from the system installed before:
+
+```BASH
+sudo apt remove docker docker-engine docker.io containerd runc
+```
+
+then install dependencies:
+
+```BASH
+sudo apt install --no-install-recommends apt-transport-https ca-certificates curl gnupg2
+```
+
+source your OS-specific variables:
+
+```BASH
+. /etc/os-release
+```
+
+add `docker` repoository to apt list of trusted packages:
+
+```BASH
+curl -fsSL https://download.docker.com/linux/${ID}/gpg | sudo apt-key add -
+```
+
+and update the `docker` repository information so `apt` can use it in future:
+
+```BASH
+ echo "deb [arch=amd64] https://download.docker.com/linux/${ID} ${VERSION_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/docker.list
+ ```
+
+ Now we can update the repositories:
+
+ ```BASH
+ sudo apt update
+ ```
+
+and then install `Docker`:
+
+```BASH
+sudo apt install docker-ce docker-ce-cli containerd.io
+```
+
+Next step is to add `<user>` to the `docker` group:
+
+```BASH
+sudo usermod -aG docker $USER
+```
+Add this to `visudo` file for Docker passwordless launch:
+
+```BASH
+sudo visudo
+```
+
+```BASH
+#Docker
+%docker ALL=(ALL)  NOPASSWD: /usr/bin/dockerd
+```
+
+Prepare shared directory:
+
+```BASH
+DOCKER_DIR=/mnt/wsl/shared-docker
+mkdir -pm o=,ug=rwx "$DOCKER_DIR"
+chgrp docker "$DOCKER_DIR"
+```
+
+[SOURCE](https://dev.to/bowmanjd/install-docker-on-windows-wsl-without-docker-desktop-34m9)
+
+<br/>
 
 ## Starship prompt
