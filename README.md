@@ -172,4 +172,27 @@ chgrp docker "$DOCKER_DIR"
 
 <br/>
 
+### Docker Compose
+
+Install `Docker compose`:
+
+```BASH
+sudo apt-get update && sudo apt-get install docker-compose-plugin
+```
+
+I had to update the `/usr/local/bin/docker-compose` file which was empty by tunning this:
+
+First  check `Docker compose` version:
+```BASH
+docker compose version
+```
+and then download correct file based on your version (in my case v2.14.1):
+
+```BASH
+ sudo curl -L "https://github.com/docker/compose/releases/download/v2.14.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```
+[SOURCE](https://github.com/docker/compose/issues/6268)
+
+<br/>
+
 ## Starship prompt
