@@ -196,3 +196,23 @@ and then download correct file based on your version (in my case v2.14.1):
 <br/>
 
 ## Starship prompt
+
+Download and install one of the [Nerd Fonts](https://www.nerdfonts.com/font-downloads), I currently use Hack font.
+
+Ten install [Starship prompt](www.starship.rs) running the following script:
+
+```BASH
+curl -sS https://starship.rs/install.sh | sh
+```
+
+add the following to the end of `~/.bashrc` file:
+
+```BASH
+eval "$(starship init bash)"
+```
+
+place `starship.toml` configuration file (locaated in your .dotfiles repo) to the `~/.config/` directory and restart shell to start starship prompt by running this:
+
+```BASH
+exec $SHELL
+```
